@@ -20,8 +20,9 @@ nav {
   background-color: #eee;
 }
 
-.code{
+.code {
   background-color: #c5c5c5;
+  padding: 0.5rem;
 }
 
 nav a {
