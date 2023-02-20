@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Palindrome Checker</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="stylesheet" href="styles.css" />
+    <script type="module" src="script.js"></script>
+  </head>
+  <body>
+    <nav>
+      <a href="/">Home</a>
+      <a href="/page2.html" aria-current="page">Palindrome Checker</a>
+    </nav>
+    <main>
+      <h1>Palindrome Checker/h1>
+    </main>
+    <section>
+      <h4>
+Return true if the given string is a palindrome. Otherwise, return false.
+<br><br>
+A palindrome is a word or sentence that's spelled the same way both forward and backward, ignoring punctuation, case, and spacing.
+<br><br>
+Note: You'll need to remove all non-alphanumeric characters (punctuation, spaces and symbols) and turn everything into the same case (lower or upper case) in order to check for palindromes.
+<br><br>
+We'll pass strings with varying formats, such as racecar, RaceCar, and race CAR among others.
+<br><br>
+We'll also pass strings with special symbols, such as 2A3*3a2, 2A3 3a2, and 2_A3*3#A2.
+      </h2>
+    <code>
+      function palindrome(str) {<br>
+        let strArray = str.replace(/[^a-zA-Z0-9]/g, "").toLowerCase();<br>
+        console.log(strArray)<br>
+        let strArray2 = strArray.split("").reverse().join("");<br>
+        console.log(strArray2)<br>
+        return strArray==strArray2?true:false;<br>
+      }
+      
+      palindrome("eye");
+    </code>
+  </section>
+  </body>
+</html>
