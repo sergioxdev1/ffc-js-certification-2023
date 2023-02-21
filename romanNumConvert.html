@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Palindrome Checker</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="stylesheet" href="styles.css" />
+    <script type="module" src="script.js"></script>
+  </head>
+  <body>
+    <nav>
+      <a href="/">Back</a>
+    </nav>
+    <main>
+      <h1>Roman Numeral Converter</h1>
+    </main>
+    <section>
+      <h4>
+      Convert the given number into a roman numeral.
+
+      Roman numerals	Arabic numerals
+      <table>
+      <tr>
+        <th>Arabic</th>
+        <th>Roman</th>
+      </tr>
+      <tr>
+        <td>M</td>
+        <td>1000</td>
+    </tr>
+    <tr>
+        <td>CM</td>
+        <td>900</td>
+    </tr>
+    <tr>
+        <td>D</td>
+        <td>500</td>
+    </tr>
+    <tr>
+        <td>CD</td>
+        <td>400</td>
+    </tr>
+    <tr>
+        <td>C</td>
+        <td>100</td>
+    </tr>
+    <tr>
+      <td>XC</td>
+      <td>90</td>
+    </tr>
+      <tr>
+      <td>L</td>
+      <td>50</td>
+    </tr>
+    <tr>
+      <td>XL</td>
+      <td>40</td>
+    </tr>
+    <tr>
+      <td>X</td>
+      <td>10</td>
+    </tr>
+    <tr>
+      <td>IX</td>
+      <td>9</td>
+    </tr>
+    </table>
+      X	10
+      IX	9
+      V	5
+      IV	4
+      I	1
+      All roman numerals answers should be provided in upper-case.
+      </h2>
+    <div class="code">
+      function palindrome(str) {<br>
+        let strArray = str.replace(/[^a-zA-Z0-9]/g, "").toLowerCase();<br>
+        console.log(strArray)<br>
+        let strArray2 = strArray.split("").reverse().join("");<br>
+        console.log(strArray2)<br>
+        return strArray==strArray2?true:false;<br>
+      }
+      
+      palindrome("eye");
+    </div>
+  </section>
+  </body>
+</html>
