@@ -42,3 +42,5 @@ function convertToRoman(num) {
   }
   return roman;
 }
+console.log(convertToRoman(1111));
+console.log(convertToRoman(213));
