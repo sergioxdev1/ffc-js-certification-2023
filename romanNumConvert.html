@@ -15,9 +15,8 @@
       <h1>Roman Numeral Converter</h1>
     </main>
     <section>
-      <h4>
-      Convert the given number into a roman numeral.
-
+      <h4>Convert the given number into a roman numeral.</h4>
+      <p>
       Roman numerals	Arabic numerals
       <table>
       <tr>
@@ -64,24 +63,47 @@
       <td>IX</td>
       <td>9</td>
     </tr>
+    <tr>
+      <td>V</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <td>IV</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <td>I</td>
+      <td>1</td>
+    </tr>
     </table>
-      X	10
-      IX	9
-      V	5
-      IV	4
-      I	1
-      All roman numerals answers should be provided in upper-case.
-      </h2>
+  </p>
+    <h3>All roman numerals answers should be provided in upper-case.</h3>
     <div class="code">
-      function palindrome(str) {<br>
-        let strArray = str.replace(/[^a-zA-Z0-9]/g, "").toLowerCase();<br>
-        console.log(strArray)<br>
-        let strArray2 = strArray.split("").reverse().join("");<br>
-        console.log(strArray2)<br>
-        return strArray==strArray2?true:false;<br>
-      }
-      
-      palindrome("eye");
+    function convertToRoman(num) {<br>
+      const romanNumerals = {<br>
+        M: 1000,<br>
+        CM: 900,<br>
+        D: 500,<br>
+        CD: 400,<br>
+        C: 100,<br>
+        XC: 90,<br>
+        L: 50,<br>
+        XL: 40,<br>
+        X: 10,<br>
+        IX: 9,<br>
+        V: 5,<br>
+        IV: 4,<br>
+        I: 1,<br>
+      };<br>
+      let roman = "";<br>
+      for (let key in romanNumerals) {<br>
+        while (num >= romanNumerals[key]) {<br>
+          roman += key;<br>
+          num -= romanNumerals[key];<br>
+        }<br>
+      }<br>
+      return roman;<br>
+    }<br>
     </div>
   </section>
   </body>
