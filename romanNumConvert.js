@@ -44,3 +44,7 @@ function convertToRoman(num) {
 }
 console.log(convertToRoman(1111));
 console.log(convertToRoman(213));
+
+/* -- Explanation
+This function works by iterating through the romanNumerals object, which contains the Roman numeral equivalents of the Arabic numerals. It uses a while loop to repeatedly add the largest Roman numeral less than or equal to the input number to the roman string, and subtracts the value of the Roman numeral from the input number until the input number is zero. Finally, it returns the roman string, which contains the Roman numeral equivalent of the input number.
+*/
