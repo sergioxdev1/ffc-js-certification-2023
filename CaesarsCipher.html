@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Palindrome Checker</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="stylesheet" href="styles.css" />
+    <script type="module" src="script.js"></script>
+  </head>
+  <body>
+    <nav>
+      <a href="/">Back</a>
+    </nav>
+    <main>
+      <h1>Caesars Cipher</h1>
+    </main>
+    <section>
+      <h4>
+        One of the simplest and most widely known ciphers is a Caesar cipher,
+        also known as a shift cipher. In a shift cipher the meanings of the
+        letters are shifted by some set amount.
+        <br /><br />
+        A common modern use is the ROT13 cipher, where the values of the letters
+        are shifted by 13 places. Thus A ↔ N, B ↔ O and so on.
+        <br /><br />
+        Write a function which takes a ROT13 encoded string as input and returns
+        a decoded string.
+        <br /><br />
+        All letters will be uppercase. Do not transform any non-alphabetic
+        character (i.e. spaces, punctuation), but do pass them on.
+      </h4>
+      <div class="code">
+        function palindrome(str) {<br />
+        let strArray = str.replace(/[^a-zA-Z0-9]/g, "").toLowerCase();<br />
+        console.log(strArray)<br />
+        let strArray2 = strArray.split("").reverse().join("");<br />
+        console.log(strArray2)<br />
+        return strArray==strArray2?true:false;<br />
+        } palindrome("eye");
+      </div>
+    </section>
+  </body>
+</html>
