@@ -54,26 +54,56 @@ See below for an example of a cash-in-drawer array:<br />
 ]<br />
       </h4>
       <div class="code">
-        function rot13(str) {<br />
-        let decoded = "";<br />
-        <br /><br />
-        for (var i = 0; i < str.length; i++) {<br />
-        let charCode = str.charCodeAt(i);<br />
-        <br /><br />
-        if (charCode >= 65 && charCode <= 90) {<br />
-        // uppercase letters<br />
-        decoded += String.fromCharCode((charCode - 65 + 13) % 26 + 65);<br />
-        } else if (charCode >= 97 && charCode <= 122) {<br />
-        // lowercase letters<br />
-        decoded += String.fromCharCode((charCode - 97 + 13) % 26 + 97);<br />
-        } else {<br />
-        // non-alphabetic characters<br />
-        decoded += str.charAt(i);<br />
+        function checkCashRegister(price, cash, cid) {<br />
+          const currencyValues = {<br />
+            "PENNY": 0.01,<br />
+            "NICKEL": 0.05,<br />
+            "DIME": 0.1,<br />
+            "QUARTER": 0.25,<br />
+            "ONE": 1,<br />
+            "FIVE": 5,<br />
+            "TEN": 10,<br />
+            "TWENTY": 20,<br />
+            "ONE HUNDRED": 100<br />
+          };<br /><br />
+        
+          let change = cash - price;<br />
+          let cidTotal = 0;<br />
+          for (let i = 0; i < cid.length; i++) {<br />
+            cidTotal += cid[i][1];<br />
+          }<br /><br />
+        
+          if (change > cidTotal) {<br />
+            return {status: "INSUFFICIENT_FUNDS", change: []};<br />
+          } else if (change.toFixed(2) === cidTotal.toFixed(2)) {<br />
+            return {status: "CLOSED", change: cid};<br />
+          } else {<br />
+            let result = {status: "OPEN", change: []};<br />
+            for (let i = cid.length - 1; i >= 0; i--) {<br />
+              let currencyName = cid[i][0];<br />
+              let currencyTotal = cid[i][1];<br />
+              let currencyValue = currencyValues[currencyName];<br />
+              let currencyAmount = 0;<br /><br />
+        
+              while (change >= currencyValue && currencyTotal > 0) {<br />
+                currencyAmount++;<br />
+                change -= currencyValue;<br />
+                currencyTotal -= currencyValue;<br />
+                change = Math.round(change * 100) / 100;<br />
+              }<br /><br />
+        
+              if (currencyAmount > 0) {<br />
+                result.change.push([currencyName, currencyAmount * currencyValue]);<br />
+              }<br />
+            }<br /><br />
+        
+            if (result.change.length < 1 || change > 0) {<br />
+              return {status: "INSUFFICIENT_FUNDS", change: []};<br />
+            }<br /><br />
+        
+            return result;<br />
+          }<br />
         }<br />
-        }<br />
-        <br /><br />
-        return decoded;<br />
-        }
       </div>
     </section>
   </body>
