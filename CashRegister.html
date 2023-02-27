@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Palindrome Checker</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="stylesheet" href="styles.css" />
+    <script type="module" src="script.js"></script>
+  </head>
+  <body>
+    <nav>
+      <a href="/">Back</a>
+    </nav>
+    <main>
+      <h1>Caesars Cipher</h1>
+    </main>
+    <section>
+      <h4>
+        One of the simplest and most widely known ciphers is a Caesar cipher,
+        also known as a shift cipher. In a shift cipher the meanings of the
+        letters are shifted by some set amount.
+        <br /><br />
+        A common modern use is the ROT13 cipher, where the values of the letters
+        are shifted by 13 places. Thus A ↔ N, B ↔ O and so on.
+        <br /><br />
+        Write a function which takes a ROT13 encoded string as input and returns
+        a decoded string.
+        <br /><br />
+        All letters will be uppercase. Do not transform any non-alphabetic
+        character (i.e. spaces, punctuation), but do pass them on.
+      </h4>
+      <div class="code">
+        function rot13(str) {<br />
+        let decoded = "";<br />
+        <br /><br />
+        for (var i = 0; i < str.length; i++) {<br />
+        let charCode = str.charCodeAt(i);<br />
+        <br /><br />
+        if (charCode >= 65 && charCode <= 90) {<br />
+        // uppercase letters<br />
+        decoded += String.fromCharCode((charCode - 65 + 13) % 26 + 65);<br />
+        } else if (charCode >= 97 && charCode <= 122) {<br />
+        // lowercase letters<br />
+        decoded += String.fromCharCode((charCode - 97 + 13) % 26 + 97);<br />
+        } else {<br />
+        // non-alphabetic characters<br />
+        decoded += str.charAt(i);<br />
+        }<br />
+        }<br />
+        <br /><br />
+        return decoded;<br />
+        }
+      </div>
+    </section>
+  </body>
+</html>
