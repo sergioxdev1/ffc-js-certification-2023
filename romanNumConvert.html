@@ -80,7 +80,33 @@
     <h3>All roman numerals answers should be provided in upper-case.</h3>
   </section>
   <div class="code">
-    
+  function convertToRoman(num) {<br>
+    const romanNumerals = {<br>
+      M: 1000,<br>
+      CM: 900,<br>
+      D: 500,<br>
+      CD: 400,<br>
+      C: 100,<br>
+      XC: 90,<br>
+      L: 50,<br>
+      XL: 40,<br>
+      X: 10,<br>
+      IX: 9,<br>
+      V: 5,<br>
+      IV: 4,<br>
+      I: 1,<br>
+    };<br>
+    let roman = "";<br>
+    for (let key in romanNumerals) {<br>
+      while (num >= romanNumerals[key]) {<br>
+        roman += key;<br>
+        num -= romanNumerals[key];<br>
+      }<br>
+    }<br>
+    return roman;<br>
+  }<br>
+  console.log(convertToRoman(1111));<br>
+  console.log(convertToRoman(213));<br>
   </div>
   </body>
 </html>
