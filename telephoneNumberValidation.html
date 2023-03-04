@@ -36,13 +36,14 @@
         valid US phone number; otherwise return false.
       </h4>
       <code>
-        function palindrome(str) {<br />
-        let strArray = str.replace(/[^a-zA-Z0-9]/g, "").toLowerCase();<br />
-        console.log(strArray)<br />
-        let strArray2 = strArray.split("").reverse().join("");<br />
-        console.log(strArray2)<br />
-        return strArray==strArray2?true:false;<br />
-        } palindrome("eye");
+        function telephoneCheck(str) {<br />
+        // Regular expression to match valid US phone numbers<br />
+        let regex = /^(1\s?)?(\(\d{3}\)|\d{3})[\s-]?\d{3}[\s-]?\d{4}$/;<br />
+        <br /><br />
+        return regex.test(str);<br />
+        }<br />
+        <br />
+        telephoneCheck("555-555-5555");
       </code>
     </section>
   </body>
